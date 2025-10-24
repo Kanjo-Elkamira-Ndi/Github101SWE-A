@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Greenfield School — Welcome</title>
+
+    <!-- Optional: simple web font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root{
+            --accent:#2b9d6f;
+            --accent-dark:#217853;
+            --muted:#6b7280;
+            --bg:#f7faf9;
+            --card:#ffffff;
+            --radius:10px;
+            --max-width:1100px;
+            --glass: rgba(255,255,255,0.65);
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;
+            background: linear-gradient(180deg,#eaf6f0 0%, #f7faf9 60%);
+            color:#0f1724;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            line-height:1.45;
+            display:flex;
+            justify-content:center;
+            padding:32px 16px;
+        }
+
+        .site{
+            width:100%;
+            max-width:var(--max-width);
+            background:transparent;
+        }
+
+        header{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:24px;
+            margin-bottom:28px;
+        }
+
+        .brand{
+            display:flex;
+            align-items:center;
+            gap:12px;
+            text-decoration:none;
+            color:inherit;
+        }
+
+        .logo{
+            width:54px;
+            height:54px;
+            border-radius:12px;
+            background:linear-gradient(135deg,var(--accent),var(--accent-dark));
+            display:grid;
+            place-items:center;
+            box-shadow: 0 6px 18px rgba(33,120,83,0.12);
+            color:#fff;
+            font-weight:700;
+        }
+
+        nav a{
+            margin-left:18px;
+            color:var(--muted);
+            text-decoration:none;
+            font-weight:600;
+            transition:color .15s ease;
+        }
+        nav a:hover{color:var(--accent-dark)}
+
+        /* Hero */
+        .hero{
+            display:grid;
+            grid-template-columns: 1fr 420px;
+            gap:28px;
+            align-items:center;
+            margin-bottom:36px;
+        }
+
+        .hero-card{
+            background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.9));
+            padding:36px;
+            border-radius:var(--radius);
+            box-shadow: 0 10px 30px rgba(16,24,40,0.06);
+        }
+
+        .eyebrow{
+            display:inline-block;
+            background:var(--accent);
+            color:white;
+            padding:6px 12px;
+            border-radius:999px;
+            font-weight:700;
+            font-size:13px;
+            margin-bottom:14px;
+        }
+
+        h1{
+            margin:0 0 12px 0;
+            font-size:28px;
+            line-height:1.08;
+        }
+        p.lead{
+            margin:0 0 18px 0;
+            color:var(--muted);
+        }
+
+        .cta-row{
+            display:flex;
+            gap:12px;
+            margin-top:8px;
+        }
+
+        .btn{
+            padding:11px 16px;
+            border-radius:10px;
+            border:0;
+            cursor:pointer;
+            font-weight:700;
+        }
+        .btn-primary{
+            background:var(--accent-dark);
+            color:#fff;
+            box-shadow: 0 8px 18px rgba(33,120,83,0.12);
+        }
+        .btn-ghost{
+            background:transparent;
+            color:var(--accent-dark);
+            border:2px solid rgba(33,120,83,0.12);
+        }
+
+        /* Quick facts panel */
+        .aside{
+            background:linear-gradient(180deg, rgba(255,255,255,0.9), var(--glass));
+            padding:22px;
+            border-radius:12px;
+            display:flex;
+            flex-direction:column;
+            gap:14px;
+            align-items:stretch;
+            box-shadow: 0 8px 24px rgba(6,8,12,0.04);
+        }
+        .stat{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .stat strong{font-size:20px}
+        .stat small{color:var(--muted)}
+
+        /* Sections */
+        section{
+            margin-bottom:28px;
+        }
+
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:16px;
+        }
+
+        .card{
+            background:var(--card);
+            padding:18px;
+            border-radius:12px;
+            box-shadow: 0 8px 20px rgba(9,10,13,0.04);
+        }
+
+        .programs .card h3{margin:0 0 8px 0}
+        .programs .card p{margin:0;color:var(--muted);font-size:14px}
+
+        /* Contact */
+        .contact{
+            display:flex;
+            gap:24px;
+            align-items:stretch;
+        }
+        .contact .form{
+            flex:1;
+            background:var(--card);
+            padding:18px;
+            border-radius:12px;
+        }
+        .contact .info{
+            width:300px;
+            background:linear-gradient(180deg, rgba(255,255,255,0.95), var(--glass));
+            padding:18px;
+            border-radius:12px;
+        }
+
+        label{display:block;font-weight:600;margin-bottom:6px;font-size:13px}
+        input,textarea,select{
+            width:100%;
+            padding:10px 12px;
+            border-radius:8px;
+            border:1px solid #e6eef0;
+            background:#fbffff;
+            font:inherit;
+            margin-bottom:12px;
+            resize:vertical;
+        }
+
+        footer{
+            margin-top:18px;
+            padding-top:18px;
+            border-top:1px dashed rgba(15,23,36,0.06);
+            color:var(--muted);
+            font-size:14px;
+            display:flex;
+            justify-content:space-between;
+            gap:12px;
+            align-items:center;
+        }
+
+        /* Responsive */
+        @media (max-width:980px){
+            .hero{grid-template-columns:1fr}
+            .grid{grid-template-columns:repeat(2,1fr)}
+            .contact{flex-direction:column}
+            .contact .info{width:100%}
+        }
+
+        @media (max-width:620px){
+            header{flex-direction:column;align-items:flex-start;gap:12px}
+            nav a{margin-left:10px;font-size:14px}
+            .grid{grid-template-columns:1fr}
+            h1{font-size:22px}
+        }
+    </style>
+</head>
+<body>
+    <div class="site" role="main">
+        <header>
+            <a class="brand" href="#">
+                <div class="logo" aria-hidden="true">GF</div>
+                <div>
+                    <div style="font-weight:700">Greenfield School</div>
+                    <div style="font-size:12px;color:var(--muted)">Inspiring curious minds</div>
+                </div>
+            </a>
+
+            <nav aria-label="Main navigation">
+                <a href="#about">About</a>
+                <a href="#programs">Programs</a>
+                <a href="#admissions">Admissions</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero" aria-label="Intro">
+                <div class="hero-card" role="region" aria-labelledby="hero-heading">
+                    <span class="eyebrow">Now enrolling — 2025</span>
+                    <h1 id="hero-heading">A joyful place to learn, grow, and belong</h1>
+                    <p class="lead">At Greenfield School we combine strong academics with social-emotional learning so students build confidence and lifelong curiosity.</p>
+
+                    <div class="cta-row" role="group" aria-label="Primary actions">
+                        <a class="btn btn-primary" href="#admissions">Request a tour</a>
+                        <a class="btn btn-ghost" href="#programs">View programs</a>
+                    </div>
+
+                    <p style="font-size:13px;color:var(--muted);margin-top:14px">Open houses: Saturdays • Scholarships available • Bus routes across the city</p>
+                </div>
+
+                <aside class="aside" aria-label="Quick facts">
+                    <div style="font-weight:700">Quick Facts</div>
+                    <div class="stat">
+                        <div><small>Students</small><div><strong>420</strong></div></div>
+                        <div><small>Student‑Teacher</small><div><strong>12:1</strong></div></div>
+                    </div>
+
+                    <div class="stat">
+                        <div><small>Grades</small><div><strong>K–8</strong></div></div>
+                        <div><small>Founded</small><div><strong>1998</strong></div></div>
+                    </div>
+
+                    <div style="margin-top:6px;font-size:13px;color:var(--muted)">Hands-on STEM labs, arts, and outdoor learning spaces—nurturing whole-child development.</div>
+                </aside>
+            </section>
+
+            <section id="about" aria-labelledby="about-heading">
+                <h2 id="about-heading" style="margin-top:0">About Greenfield</h2>
+                <p style="color:var(--muted);margin-top:6px">Greenfield School is a community-centered independent school focused on inquiry-based learning. Our faculty are dedicated educators who personalize instruction and encourage students to lead, explore, and collaborate.</p>
+            </section>
+
+            <section id="programs" class="programs" aria-labelledby="programs-heading">
+                <h2 id="programs-heading">Programs</h2>
+                <div class="grid" style="margin-top:12px">
+                    <article class="card" aria-label="Early Childhood Program">
+                        <h3>Early Childhood</h3>
+                        <p>Play-based curriculum for ages 3–5 that builds language, social skills, and a love for discovery.</p>
+                    </article>
+
+                    <article class="card" aria-label="Lower School">
+                        <h3>Lower School</h3>
+                        <p>Strong foundations in literacy and numeracy with integrated arts and physical education.</p>
+                    </article>
+
+                    <article class="card" aria-label="Middle School">
+                        <h3>Middle School</h3>
+                        <p>Project-driven learning, leadership opportunities, and preparation for high school success.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="admissions" aria-labelledby="admissions-heading">
+                <h2 id="admissions-heading">Admissions & Visit</h2>
+                <p style="color:var(--muted);margin-top:6px">We welcome families to schedule a personalized tour. Visit days and virtual open houses are available throughout the year.</p>
+
+                <div class="contact" id="contact" style="margin-top:12px">
+                    <form class="form" aria-label="Request a tour form" onsubmit="return false;">
+                        <label for="name">Full name</label>
+                        <input id="name" name="name" type="text" placeholder="Your name" required>
+
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+                        <label for="grade">Grade (applying for)</label>
+                        <select id="grade" name="grade">
+                            <option>Pre-K</option>
+                            <option>K</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                        </select>
+
+                        <label for="message">Preferred tour date / questions</label>
+                        <textarea id="message" rows="4" placeholder="Tell us when you'd like to visit"></textarea>
+
+                        <button class="btn btn-primary" type="submit">Request tour</button>
+                    </form>
+
+                    <aside class="info" aria-label="Admissions contact">
+                        <div style="font-weight:700;margin-bottom:6px">Admissions Office</div>
+                        <div style="color:var(--muted);font-size:14px">Phone: (555) 123-4567</div>
+                        <div style="color:var(--muted);font-size:14px;margin-bottom:12px">Email: admissions@greenfield.edu</div>
+
+                        <div style="font-weight:700;margin-bottom:6px">Visit</div>
+                        <div style="color:var(--muted);font-size:14px">123 Meadow Lane<br>Hometown, ST 00000</div>
+                    </aside>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div>© <strong>Greenfield School</strong> — All rights reserved</div>
+            <div style="display:flex;gap:12px;align-items:center;color:var(--muted)">
+                <a href="#" style="color:inherit;text-decoration:none">Privacy</a>
+                <a href="#" style="color:inherit;text-decoration:none">Terms</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
